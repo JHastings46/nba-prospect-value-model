@@ -107,6 +107,6 @@ elif page == "About the Model":
     - Built on 2008-2021 draft classes
 
     ## Contact
-    Built by Joel Hastings | [GitHub](https://github.com/JHastings46)
+    Built by Joel Hastings | [GitHub](https://github.com/JHastings46/nba-prospect-value-model.git)   
     | [LinkedIn](https://linkedin.com/in/joel-hastings-976bb855)
     """)
