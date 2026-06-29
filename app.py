@@ -69,7 +69,7 @@ elif page == "Score a Prospect":
     obpm = col2.number_input("Offensive BPM (OBPM) — offensive points above average per 100 poss", min_value=-5.0, max_value=15.0, value=2.0)
     mid  = col3.number_input("Mid-Range Shots Made — total mid-range field goals made", min_value=0.0, max_value=100.0, value=20.0)
 
-    st.caption("All stats from Bart Torvik: barttorvik.com — search any player to find these values.")
+   st.caption("All stats from [Bart Torvik](https://barttorvik.com) — search any player to find these values.")
     
     if st.button("Predict"):
         X = pd.DataFrame([[blk, obpm, mid]], columns=features)
