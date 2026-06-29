@@ -66,7 +66,7 @@ elif page == "Score a Prospect":
     col1, col2, col3 = st.columns(3)
     blk  = col1.number_input("Block % (blk_pct) — % of opponent 2PA blocked", min_value=0.0, max_value=20.0, value=3.0)
     obpm = col2.number_input("Offensive BPM (OBPM) — offensive points above average per 100 poss", min_value=-5.0, max_value=15.0, value=2.0)
-    mid  = col3.number_input("Mid-Range Shots Made — total mid-range field goals made", min_value=0.0, max_value=100.0, value=20.0)
+    mid = col3.number_input("2-Point FG Made (2P) — first number in 2P column on Bart Torvik",min_value=0.0, max_value=500.0, value=80.0)
     st.markdown("All stats from [Bart Torvik](https://barttorvik.com) — search any player to find these values.")
     
     if st.button("Predict"):
