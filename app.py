@@ -69,6 +69,7 @@ elif page == "Score a Prospect":
         vs_avg   = pred_gam - 0.099
         st.metric("Predicted WS/48", f"{pred_gam:.3f}",
                   f"{vs_avg:+.3f} vs league average")
+        st.info("Note: This model predicts Years 3-5 NBA value — not rookie year performance. Year 1 WS/48 is typically lower as players adjust to the NBA.")
         if vs_avg > 0.02:
             st.success("Above average — model projects NBA contributor")
         elif vs_avg > 0:
