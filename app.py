@@ -61,7 +61,7 @@ elif page == "Score a Prospect":
                              min_value=-10.0, max_value=15.0, value=2.0)
     ftr = col3.number_input("Free Throw Rate (ftr) — FTA divided by FGA",
                              min_value=0.0, max_value=1.5, value=0.3)
-    st.markdown("All stats from [Bart Torvik](https://barttorvik.com) — search any player to find these values.")
+    st.markdown(""" All stats from [College Basketball Reference](https://www.sports-reference.com/cbb/) — search the player name, go to their page, click **Advanced** stats tab to find BLK%, BPM, and FTR.""")
 
     if st.button("Predict"):
         X = pd.DataFrame([[blk, bpm, ftr]], columns=features)
