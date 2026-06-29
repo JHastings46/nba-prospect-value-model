@@ -31,7 +31,6 @@ df_board = load_draft_board()
 # ── Sidebar ──────────────────────────────────────────────────
 st.sidebar.title("🏀 NBA Prospect Value Model")
 st.sidebar.markdown("Predicts NBA Years 3-5 WS/48 from college stats.")
-st.sidebar.markdown("[View Historical Dashboard](https://public.tableau.com/app/profile/joel.hastings)")
 page = st.sidebar.radio("Navigate", [
     "2026 Draft Board",
     "Score a Prospect",
