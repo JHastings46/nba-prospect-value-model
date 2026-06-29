@@ -5,7 +5,7 @@ import joblib
 
 # ── Page Config ─────────────────────────────────────────────
 st.set_page_config(
-    page_title="NBA Prospect Value Model",
+    page_title="NBA Prospect Value Model | Joel Hastings",
     page_icon="🏀",
     layout="wide"
 )
