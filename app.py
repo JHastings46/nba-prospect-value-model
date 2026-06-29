@@ -59,8 +59,7 @@ elif page == "Score a Prospect":
                              min_value=0.0, max_value=20.0, value=3.0)
     bpm = col2.number_input("BPM — overall Box Plus/Minus",
                              min_value=-10.0, max_value=20.0, value=2.0)
-    ftr = col3.number_input("Free Throw Rate (ftr) — FTA divided by FGA",
-                             min_value=0.0, max_value=5.0, value=0.3)
+    ftr = col3.number_input("FTr — Free Throw Attempt Rate (FTA per FGA)", min_value=0.0, max_value=5.0, value=0.3)
     st.markdown(""" All stats from [College Basketball Reference](https://www.sports-reference.com/cbb/) — search the player name, go to their page, click **Advanced** stats tab to find BLK%, BPM, and FTR.""")
 
     if st.button("Predict"):
