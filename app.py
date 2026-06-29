@@ -36,6 +36,9 @@ page = st.sidebar.radio("Navigate", [
     "Score a Prospect",
     "About the Model"
 ])
+st.sidebar.markdown("---")
+st.sidebar.markdown("Built by **Joel Hastings**")
+st.sidebar.markdown("[GitHub](https://github.com/JHastings46) | [LinkedIn](https://linkedin.com/in/joel-hastings-976bb855)")
 
 # ── Page 1: Draft Board ──────────────────────────────────────
 if page == "2026 Draft Board":
