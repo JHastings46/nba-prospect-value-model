@@ -33,7 +33,7 @@ page = st.sidebar.radio("Navigate", [
 ])
 st.sidebar.markdown("---")
 st.sidebar.markdown("Built by **Joel Hastings**")
-st.sidebar.markdown("[GitHub](https://github.com/JHastings46) | [LinkedIn](https://linkedin.com/in/joel-hastings-976bb855)")
+st.sidebar.markdown("[GitHub](https://github.com/JHastings46/nba-prospect-value-model.git) | [LinkedIn](https://linkedin.com/in/joel-hastings-976bb855)")
 
 if page == "2026 Draft Board":
     st.title("2026 NBA Draft Board")
