@@ -3,32 +3,27 @@ import pandas as pd
 import numpy as np
 import joblib
 
-# ── Page Config ─────────────────────────────────────────────
 st.set_page_config(
     page_title="NBA Prospect Value Model | Joel Hastings",
     page_icon="🏀",
     layout="wide"
 )
 
-# ── Load Artifacts ───────────────────────────────────────────
 @st.cache_resource
 def load_artifacts():
-    rf       = joblib.load("model_artifacts/rf_model.pkl")
     gam      = joblib.load("model_artifacts/gam_model.pkl")
     scaler   = joblib.load("model_artifacts/scaler_final.pkl")
     features = joblib.load("model_artifacts/selected_features.pkl")
-    return rf, gam, scaler, features
+    return gam, scaler, features
 
-rf, gam, scaler, features = load_artifacts()
+gam, scaler, features = load_artifacts()
 
-# ── Load Draft Board ─────────────────────────────────────────
 @st.cache_data
 def load_draft_board():
     return pd.read_csv("model_artifacts/draft_board_2026.csv")
 
 df_board = load_draft_board()
 
-# ── Sidebar ──────────────────────────────────────────────────
 st.sidebar.title("🏀 NBA Prospect Value Model")
 st.sidebar.markdown("Predicts NBA Years 3-5 WS/48 from college stats.")
 page = st.sidebar.radio("Navigate", [
@@ -40,16 +35,13 @@ st.sidebar.markdown("---")
 st.sidebar.markdown("Built by **Joel Hastings**")
 st.sidebar.markdown("[GitHub](https://github.com/JHastings46) | [LinkedIn](https://linkedin.com/in/joel-hastings-976bb855)")
 
-# ── Page 1: Draft Board ──────────────────────────────────────
 if page == "2026 Draft Board":
     st.title("2026 NBA Draft Board")
     st.markdown("Players ranked by predicted NBA Years 3-5 value.")
-
     col1, col2, col3 = st.columns(3)
     col1.metric("Biggest Steal", "Tarris Reed Jr.", "Pick 26 → Model Rank 2")
-    col2.metric("Biggest Reach", "AJ Dybantsa", "Pick 1 → Model Rank 19")
+    col2.metric("Biggest Reach", "AJ Dybantsa", "Pick 1 → Model Rank 20")
     col3.metric("League Average WS/48", "0.099", "")
-
     st.dataframe(
         df_board[[
             "player_name", "draft_pick", "model_rank",
@@ -59,25 +51,25 @@ if page == "2026 Draft Board":
         use_container_width=True
     )
 
-# ── Page 2: Score a Prospect ─────────────────────────────────
 elif page == "Score a Prospect":
     st.title("Score Any Prospect")
     st.markdown("Enter college stats to get a predicted NBA WS/48.")
     col1, col2, col3 = st.columns(3)
-    blk  = col1.number_input("Block % (blk_pct) — % of opponent 2PA blocked", min_value=0.0, max_value=20.0, value=3.0)
-    obpm = col2.number_input("Offensive BPM (OBPM) — offensive points above average per 100 poss", min_value=-5.0, max_value=15.0, value=2.0)
-    mid = col3.number_input("2-Point FG Made (2P) — first number in 2P column on Bart Torvik",min_value=0.0, max_value=500.0, value=80.0)
+    blk = col1.number_input("Block % (blk_pct) — % of opponent 2PA blocked",
+                             min_value=0.0, max_value=20.0, value=3.0)
+    bpm = col2.number_input("BPM — overall Box Plus/Minus",
+                             min_value=-10.0, max_value=15.0, value=2.0)
+    ftr = col3.number_input("Free Throw Rate (ftr) — FTA divided by FGA",
+                             min_value=0.0, max_value=1.5, value=0.3)
     st.markdown("All stats from [Bart Torvik](https://barttorvik.com) — search any player to find these values.")
-    
-    if st.button("Predict"):
-        X = pd.DataFrame([[blk, obpm, mid]], columns=features)
-        scaled      = scaler.transform(X)
-        pred_gam    = gam.predict(scaled)[0]
-        vs_avg      = pred_gam - 0.099
 
+    if st.button("Predict"):
+        X = pd.DataFrame([[blk, bpm, ftr]], columns=features)
+        scaled   = scaler.transform(X)
+        pred_gam = gam.predict(scaled)[0]
+        vs_avg   = pred_gam - 0.099
         st.metric("Predicted WS/48", f"{pred_gam:.3f}",
                   f"{vs_avg:+.3f} vs league average")
-
         if vs_avg > 0.02:
             st.success("Above average — model projects NBA contributor")
         elif vs_avg > 0:
@@ -85,7 +77,6 @@ elif page == "Score a Prospect":
         else:
             st.warning("Below average — limited NBA upside per model")
 
-# ── Page 3: About ────────────────────────────────────────────
 elif page == "About the Model":
     st.title("About This Model")
     st.markdown("""
@@ -95,17 +86,18 @@ elif page == "About the Model":
 
     ## Features Used
     - **blk_pct** — Block percentage (rim protection)
-    - **OBPM** — Offensive Box Plus/Minus (offensive impact)
-    - **mid_made** — Mid-range shots made (scoring versatility)
+    - **BPM** — Overall Box Plus/Minus (total impact)
+    - **ftr** — Free throw rate (aggression and drawing fouls)
 
     ## Model Performance
     | Metric | Ridge | RF | GAM |
     |--------|-------|----|-----|
-    | Test R² | 0.226 | 0.235 | 0.243 |
-    | Spearman | 0.333 | 0.390 | 0.328 |
+    | Test R² | 0.231 | 0.181 | 0.255 |
+    | Test MAE | 0.0342 | 0.0357 | 0.0340 |
+    | Spearman | 0.307 | 0.299 | 0.319 |
 
     ## Data Sources
-    - College stats: Bart Torvik
+    - College stats: Kaggle — College Basketball Players 2009-2021
     - NBA outcomes: Basketball-Reference via Kaggle
     - Draft history: NBA API
 
