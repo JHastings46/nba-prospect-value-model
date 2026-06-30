@@ -2,7 +2,7 @@
 ### A Pre-Draft Analytics Tool for Front Office Decision Making
 
 Built by **Joel Hastings** | MS Data Science, University of Colorado Boulder  
-[Live App](https://nba-prospect-value-model-jzpnetqjm2cr2wkqjhcrze.streamlit.app) | [LinkedIn](https://linkedin.com/in/joel-hastings-976bb855)
+[Live App](https://nba-prospect-value-model-jzpnetqjm2cr2wkgjhcrze.streamlit.app/) | [LinkedIn](https://linkedin.com/in/joel-hastings-976bb855)
 
 ---
 
