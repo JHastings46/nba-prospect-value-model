@@ -139,13 +139,12 @@ elif page == "Score a Prospect":
     )
 
     st.caption(
-        "College stats used to train this model come from Kaggle user adityak2003's "
-        "[college basketball advanced statistics dataset]"
-        "(https://www.kaggle.com/datasets/adityak2003/college-basketball-players-20092021) "
-        "(2008-2021), not College Basketball Reference directly. If you're hand-entering "
-        "a prospect's stats, check that dataset's page for its original source and use "
-        "the same one — stat definitions (e.g. how ORtg or BPM is calculated) can differ "
-        "slightly across sites, which can shift the prediction without any visible error."
+        "Find these stats on [College Basketball Reference]"
+        "(https://www.sports-reference.com/cbb/players/aj-dybantsa-1.html) — start "
+        "from a player's page like [AJ Dybantsa's]"
+        "(https://www.sports-reference.com/cbb/players/aj-dybantsa-1.html) and scroll "
+        "to two tables: **Advanced** has BLK%, ORB%, DRB%, FTr, and BPM. **Per 100 Poss** "
+        "has ORtg and 2P%."
     )
 
     if st.button("Predict"):
