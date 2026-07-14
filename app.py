@@ -140,11 +140,12 @@ elif page == "Score a Prospect":
 
     st.caption(
         "College stats used to train this model come from Kaggle user adityak2003's "
-        "college basketball advanced statistics dataset (2008-2021), not College "
-        "Basketball Reference directly. If you're hand-entering a prospect's stats, "
-        "check that dataset's page for its original source and use the same one — "
-        "stat definitions (e.g. how ORtg or BPM is calculated) can differ slightly "
-        "across sites, which can shift the prediction without any visible error."
+        "[college basketball advanced statistics dataset]"
+        "(https://www.kaggle.com/datasets/adityak2003/college-basketball-players-20092021) "
+        "(2008-2021), not College Basketball Reference directly. If you're hand-entering "
+        "a prospect's stats, check that dataset's page for its original source and use "
+        "the same one — stat definitions (e.g. how ORtg or BPM is calculated) can differ "
+        "slightly across sites, which can shift the prediction without any visible error."
     )
 
     if st.button("Predict"):
@@ -214,10 +215,10 @@ elif page == "About the Model":
     ## Data Sources
     | Source | Data | Coverage |
     |---|---|---|
-    | Kaggle — adityak2003 | College advanced statistics | 2008-2021 |
-    | Kaggle — sumitrodatta | NBA advanced statistics and WS/48 | 2011-2026 |
+    | [Kaggle — adityak2003](https://www.kaggle.com/datasets/adityak2003/college-basketball-players-20092021) | College advanced statistics | 2008-2021 |
+    | [Kaggle — sumitrodatta](https://www.kaggle.com/datasets/sumitrodatta/nba-aba-baa-stats) | NBA advanced statistics and WS/48 | 2011-2026 |
     | NBA API | NBA draft history | 2008-2021 |
-    | Kaggle — tymoteuszdobrucki | NBA Combine measurements | 2000-2023 |
+    | [Kaggle — tymoteuszdobrucki](https://www.kaggle.com/datasets/tymoteuszdobrucki/nba-anthropometric) | NBA Combine measurements | 2000-2023 |
     | 2026 college statistics file | Current prospect features | 2025-2026 season |
 
     ## Limitations
