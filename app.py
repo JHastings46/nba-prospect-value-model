@@ -138,7 +138,7 @@ elif page == "Score a Prospect":
         min_value=0.0, max_value=5.0, value=0.3
     )
 
-    st.caption(
+    st.info(
         "Find these stats on [College Basketball Reference]"
         "(https://www.sports-reference.com/cbb/players/aj-dybantsa-1.html) — start "
         "from a player's page like [AJ Dybantsa's]"
