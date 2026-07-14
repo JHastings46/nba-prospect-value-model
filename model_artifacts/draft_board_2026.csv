@@ -1,0 +1,28 @@
+draft_pick,player_name,predicted_ws48,vs_average,model_rank,draft_model_gap,value_label
+3,Cameron Boozer,0.142,0.043,1,2,Fair Value
+9,Morez Johnson Jr.,0.137,0.038,2,7,Undervalued
+4,Caleb Wilson,0.137,0.038,3,1,Fair Value
+23,Zuby Ejiofor,0.137,0.038,4,19,Undervalued
+26,Tarris Reed Jr.,0.136,0.037,5,21,Undervalued
+14,Hannes Steinbach,0.134,0.035,6,8,Undervalued
+12,Aday Mara,0.131,0.032,7,5,Undervalued
+19,Allen Graves,0.131,0.032,8,11,Undervalued
+15,Dailyn Swain,0.116,0.017,9,6,Undervalued
+11,Yaxel Lendeborg,0.106,0.007,10,1,Fair Value
+24,Cameron Carr,0.105,0.006,11,13,Undervalued
+1,AJ Dybantsa,0.099,0.0,12,-11,Overvalued
+27,Chris Cenac Jr.,0.098,-0.001,13,14,Undervalued
+28,Joshua Jefferson,0.096,-0.003,14,14,Undervalued
+22,Labaron Philon Jr.,0.094,-0.005,15,7,Undervalued
+16,Bennett Stirtz,0.093,-0.006,16,0,Fair Value
+10,Brayden Burries,0.093,-0.006,17,-7,Overvalued
+29,Alex Karaban,0.092,-0.007,18,11,Undervalued
+18,Christian Anderson,0.088,-0.011,19,-1,Fair Value
+8,Kingston Flemings,0.082,-0.017,20,-12,Overvalued
+17,Ebuka Okorie,0.08,-0.019,21,-4,Fair Value
+30,Koa Peat,0.08,-0.019,22,8,Undervalued
+6,Mikel Brown Jr.,0.078,-0.021,23,-17,Overvalued
+7,Darius Acuff Jr.,0.077,-0.022,24,-17,Overvalued
+13,Nate Ament,0.073,-0.026,25,-12,Overvalued
+5,Keaton Wagler,0.07,-0.029,26,-21,Overvalued
+2,Darryn Peterson,0.067,-0.032,27,-25,Overvalued
